@@ -1,17 +1,21 @@
 const convertButton = document.querySelector("#convert-button");
 const currencySelect = document.querySelector("#currency-select");
 
-function convertValues() {
+async function getExchangeRates() {
+  const response = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL');
+  const data = await response.json();
+  const dolarToday = parseFloat(data.USDBRL.high);
+  const euroToday = parseFloat(data.EURBRL.high);
+  return { dolarToday, euroToday };
+}
+
+async function convertValues() {
   const inputCurrencyValue = document.querySelector("#input-currency").value;
-  const currencyValueToConvert = document.querySelector(
-    ".currency-value-to-convert"
-  );
+  const currencyValueToConvert = document.querySelector(".currency-value-to-convert");
   const currencyValueConverted = document.querySelector(".currency-value");
 
-  console.log(currencySelect.value);
-
-  const dolarToday = 5.2;
-  const euroToday = 6.2;
+  // Busca os valores atualizados
+  const { dolarToday, euroToday } = await getExchangeRates();
 
   if (currencySelect.value == "USD") {
     currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
