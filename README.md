@@ -8,11 +8,6 @@ Este é um projeto de conversor de moedas desenvolvido em HTML, CSS e JavaScript
 - Interface responsiva e amigável
 - Atualização dinâmica de nomes e bandeiras das moedas
 
-## Como usar
-1. Clone ou baixe este repositório.
-2. Abra o arquivo `index.html` em seu navegador.
-3. Escolha a moeda de origem e destino, digite o valor e clique em "Converter".
-
 ## Tecnologias utilizadas
 - HTML5
 - CSS3
