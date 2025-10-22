@@ -15,7 +15,6 @@ async function getExchangeRates() {
     BRL: 1,
   };
 }
-
 async function convertValues() {
   const inputCurrencyValue = parseFloat(
     document.querySelector("#input-currency").value.replace(",", ".")
